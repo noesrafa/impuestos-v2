@@ -7,7 +7,7 @@ const NavigationBar = () => {
   return (
     <LinearGradient
       style={styles.container}
-      colors={['rgba(0, 0, 0,0)','#070607', '#070607']}>
+      colors={['rgba(0, 0, 0,0)','#000', '#000']}>
       <View style={styles.wrapper}>
         <UserIcon />
         <GridIcon />

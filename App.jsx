@@ -6,7 +6,6 @@ import {COLOR} from './src/theme/appTheme';
 import { ContextProvider } from './global/Context';
 
 const App = () => {
-  console.log("hola");
   const navTheme = {
     ...DefaultTheme,
     colors: {

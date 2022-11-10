@@ -2,11 +2,12 @@ import {StyleSheet, Text, View, Image} from 'react-native';
 import React from 'react';
 import {COLOR, FONTS, FSIZE} from '../../theme/appTheme';
 import {DotMenuIcon, DownArrowIcon, GraphGradient} from '../../theme/Icons';
+import PressableScale from '../PressableScale';
 
 const DeclaracionAcuse = () => {
   return (
     <>
-    <View style={styles.container}>
+    <PressableScale style={styles.container} scale={0.8}>
       <View style={styles.optionsContainer}>
         <View style={styles.percentContainer}>
           <DownArrowIcon />
@@ -26,7 +27,7 @@ const DeclaracionAcuse = () => {
             <Text style={[styles.valueText, {color: COLOR.gray200}]}>/MXN</Text>
         </View>
       </View>
-    </View>
+    </PressableScale>
     </>
   );
 };
@@ -64,7 +65,8 @@ const styles = StyleSheet.create({
     height: 120,
   },
   itemsContainer: {
-    padding: 18
+    paddingHorizontal: 18,
+    paddingBottom: 18
   },
   titleText: {
     fontFamily: FONTS.medium,

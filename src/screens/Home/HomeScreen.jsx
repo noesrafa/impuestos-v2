@@ -1,17 +1,20 @@
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
-import React, {useContext} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+} from 'react-native';
+import React, {} from 'react';
 import Header from './Header';
 import NavigationBar from '../../components/NavigationBar';
 import {COLOR, FONTS, FSIZE} from '../../theme/appTheme';
-import {GlobalContext} from '../../../global/Context';
 import {AboutIcon, DownloadIcon, ShareIcon} from '../../theme/Icons';
 import DetailAnalisis from '../../components/home/DetailAnalisis';
 import DeclaracionAcuse from '../../components/home/DeclaracionAcuse';
 import Impuestos from '../../components/home/Impuestos';
+import ActionButton from '../../components/home/ActionButton';
 
 const HomeScreen = () => {
-  const {val, setVal} = useContext(GlobalContext);
-  console.log(val);
 
   return (
     <>
@@ -46,23 +49,19 @@ const HomeScreen = () => {
           </View>
           {/* Contenedor de modulos */}
         </View>
-          <ScrollView
-            style={styles.modulosContainer}
-            horizontal
-            showsHorizontalScrollIndicator={false}>
-            <DeclaracionAcuse />
-            <View style={styles.modulosRight}>
-              <Impuestos />
-              <View style={styles.buttonsContainer}>
-                <View style={styles.button}>
-                  <DownloadIcon />
-                </View>
-                <View style={styles.button}>
-                  <ShareIcon />
-                </View>
-              </View>
+        <ScrollView
+          style={styles.modulosContainer}
+          horizontal
+          showsHorizontalScrollIndicator={false}>
+          <DeclaracionAcuse />
+          <View style={styles.modulosRight}>
+            <Impuestos />
+            <View style={styles.buttonsContainer}>
+              <ActionButton component={<DownloadIcon />}/>
+              <ActionButton component={<ShareIcon />}/>
             </View>
-          </ScrollView>
+          </View>
+        </ScrollView>
       </ScrollView>
       <NavigationBar />
     </>
@@ -114,12 +113,5 @@ const styles = StyleSheet.create({
   },
   buttonsContainer: {
     flexDirection: 'row',
-  },
-  button: {
-    backgroundColor: COLOR.gray400,
-    padding: 45,
-    borderRadius: 100,
-    marginTop: 14,
-    marginRight: 14,
   },
 });
