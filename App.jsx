@@ -1,11 +1,11 @@
-import { StatusBar, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import StackNavigator from './src/navigator/StackNavigator';
-import { COLOR } from './src/theme/appTheme';
+import {COLOR} from './src/theme/appTheme';
+import { ContextProvider } from './global/Context';
 
 const App = () => {
-
   const navTheme = {
     ...DefaultTheme,
     colors: {
@@ -15,23 +15,25 @@ const App = () => {
   };
 
   return (
-    <NavigationContainer theme={navTheme}>
-      <View style={styles.container}>
-        <StatusBar
-          translucent
-          backgroundColor={'transparent'}
-          barStyle={'white-content'}
-        />
-        <StackNavigator />
-      </View>
-    </NavigationContainer>
-  )
-}
+    <ContextProvider>
+      <NavigationContainer theme={navTheme}>
+        <View style={styles.container}>
+          <StatusBar
+            translucent
+            backgroundColor={'transparent'}
+            barStyle={'white-content'}
+          />
+          <StackNavigator />
+        </View>
+      </NavigationContainer>
+    </ContextProvider>
+  );
+};
 
-export default App
+export default App;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  }
-})
+  },
+});

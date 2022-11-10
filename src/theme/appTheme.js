@@ -1,7 +1,7 @@
 import {Dimensions, PixelRatio} from 'react-native';
 
 // === Dimensions ===
-const {width, height} = Dimensions.get('window');
+const {width, height} = Dimensions.get('screen');
 
 export function normalize(size = 1) {
     const scale = width / 420;
@@ -18,13 +18,15 @@ export const FONTS = {
     bold: 'Axiforma-Bold',
 }
 
+
+
 export const FSIZE = {
-    sm: normalize(20),
-    normal: normalize(22),
+    sm: normalize(18),
+    normal: normalize(20),
     md: normalize(22),
     big: normalize(26),
-    max: normalize(28),
-    title: normalize(40),
+    max: normalize(34),
+    title: normalize(50),
 
     //app dimensions
     screenHeight: height,
